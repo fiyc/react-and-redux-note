@@ -15,7 +15,28 @@ const buttonStyle = {
     margin: '10px'
   };
 
-class Counter extends Component {
+
+  /**
+   * 傻瓜组件
+   *    - 无状态
+   *    - 只负责渲染页面
+   */
+function Counter({caption, onIncrement, onDecrement, value}){
+    return (
+        <div>
+            <button style={buttonStyle} onClick={onIncrement}>+</button>
+            <button style={buttonStyle} onClick={onDecrement}>-</button>
+            <span>{caption} count: {value}</span>
+        </div>
+    );
+}
+
+/**
+ * 容器组件
+ *  - 维护状态
+ *  - 不关心页面渲染, 只要渲染无状态组件
+ */
+class CounterContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -52,16 +73,15 @@ class Counter extends Component {
     }
 
     render() {
-        const { caption } = this.props;
         return (
-            <div>
-                <button style={buttonStyle} onClick={this.onClickIncrementButton}>+</button>
-                <button style={buttonStyle} onClick={this.onClickDecrementButton}>-</button>
-                <span>{caption} count: {this.state.count}</span>
-            </div>
+            <Counter
+                caption={this.props.caption}
+                onIncrement={this.onClickIncrementButton}
+                onDecrement={this.onClickDecrementButton}
+                value={this.state.count}
+            />
         );
     };
-
 }
 
-export default Counter;
+export default CounterContainer;

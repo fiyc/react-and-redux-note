@@ -9,7 +9,18 @@
 import React, { Component } from 'react';
 import store from '../Store';
 
-class Summary extends Component{
+  /**
+   * 傻瓜组件
+   *    - 无状态
+   *    - 只负责渲染页面
+   */
+function Summary({total}){
+    return(
+        <div>Total Count: {total}</div>
+    );
+}
+
+class SummaryContainer extends Component{
     constructor(props){
         super(props);
 
@@ -44,9 +55,9 @@ class Summary extends Component{
 
     render(){
         return(
-            <div>Total Count: {this.state.sum}</div>
+            <Summary total={this.state.sum}/>
         );
     }
 }
 
-export default Summary;
+export default SummaryContainer;
