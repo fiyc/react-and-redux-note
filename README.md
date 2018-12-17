@@ -3,4 +3,5 @@
 
 ## 记录
 * 2018-12-17 10:33 - flux @[chapter-03/flux-demo/README.md](#)
+* 2018-12-17 14:52 - Redux @[chapter-03/redux-basic/README.md](#)
 
