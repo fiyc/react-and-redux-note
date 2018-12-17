@@ -5,3 +5,5 @@
 * @Description :
 *     - action类型常量
 */
+
+export const UPDATE_COUNT = "updateCount";
