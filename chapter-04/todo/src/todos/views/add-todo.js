@@ -13,29 +13,37 @@ import * as actions  from '../actions';
 class AddTodo extends Component{
     constructor(props, context){
         super(props, context);
+
+        this.state = {
+            input: ''
+        };
     }
 
     onSubmit = (ev) => {
         ev.preventDefault();
 
-        const input = this.input;
-        if(!input.value.trim()){
+        const input = this.state.input;
+        if(!input.trim()){
             return;
         }
 
-        this.props.onAdd(input.value);
-        input.value = '';
+        this.props.onAdd(input);
+        this.setState({
+            input: ''
+        });
     }
 
-    refInput = (dom) => {
-        this.input = dom;
+    changeInput = (ev) => {
+        this.setState({
+            input: ev.target.value
+        });
     }
 
     render(){
         return (
             <div className="add-todo">
                 <form onSubmit={this.onSubmit}>
-                    <input className="new-todo" ref={this.refInput} />
+                    <input className="new-todo" onChange={this.changeInput} value={this.state.input}/>
                     <button className="add-btn" type="submit">添加</button>
                 </form>
             </div>
