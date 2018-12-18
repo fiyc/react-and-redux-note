@@ -19,7 +19,7 @@ const TodoItem = ({text, completed, onToggle, onRemove}) => {
                 readOnly onClick={onToggle}/>
             
             <label className="text">{text}</label>
-            <button class="remove" onClick={onRemove}>x</button>
+            <button className="remove" onClick={onRemove}>x</button>
         </li>
     );
 }
