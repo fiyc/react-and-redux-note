@@ -10,4 +10,5 @@
 * 2018-12-18 10:55 - 待办事项应用 @[chapter-04/todo](#)
 * 2018-12-19 10:56 - 以函数为子组件 @[chapter-06/function-as-child](#)
 * 2018-12-19 13:54 - react 访问服务器 @[chapter-07/weather-react](#)
+* 2018-12-19 14:45 - Redux请求API @[chapter-07/weather-redux](#)
 
