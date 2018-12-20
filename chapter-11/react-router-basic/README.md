@@ -1,4 +1,6 @@
 # React-Router
+[文档地址](https://reacttraining.com/react-router/web/example/preventing-transitions)  
+
 * 2018-12-20 14:17 - 路由基本使用 @[src/examples/basic.js](#)
 * 2018-12-20 14:45 - URL Parammeters @[src/examples/url-parameter.js](#)
 * 2018-12-20 15:02 - Redirects(Auth) @[src/examples/redirect-auth.js](#)
