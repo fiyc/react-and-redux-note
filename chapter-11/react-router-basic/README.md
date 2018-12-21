@@ -5,3 +5,5 @@
 * 2018-12-20 14:45 - URL Parammeters @[src/examples/url-parameter.js](#)
 * 2018-12-20 15:02 - Redirects(Auth) @[src/examples/redirect-auth.js](#)
 * 2018-12-20 15:56 - Custom Link @[src/examples/custom-link.js](#)
+* 2018-12-20 17:03 - Preventing Transitions @[src/examples/preventing-transitions.js](#)
+* 2018-12-21 10:04 - Switch @[src/examples/switch-use.js](#)

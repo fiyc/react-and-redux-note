@@ -4,11 +4,10 @@
 * @FileName : preventing-transitions.js
 * @Description :
 *     - Preventing Transitions
-* 2018-12-20 17:03 - Preventing Transitions @[src/examples/preventing-transitions.js](#)
 */
 
-import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Link, Prompt} from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link, Prompt } from 'react-router-dom';
 
 const PreventingTransitionsExample = () => {
     return (
@@ -26,7 +25,7 @@ const PreventingTransitionsExample = () => {
                     </li>
                 </ul>
 
-                <Route path="/" exact component={Form}/>
+                <Route path="/" exact component={Form} />
                 <Route path="/one" render={() => <h3>One</h3>} />
                 <Route path="/two" render={() => <h3>Two</h3>} />
             </div>
@@ -34,15 +33,46 @@ const PreventingTransitionsExample = () => {
     );
 }
 
-class Form extends Component{
-    state = {isBlocking: false};
+class Form extends Component {
+    state = { isBlocking: false };
 
-    render(){
-        let {isBlocking} = this.state;
+    render() {
+        let { isBlocking } = this.state;
 
         return (
-            <form>
-                
+            <form
+                onSubmit={event => {
+                    event.preventDefault();
+                    event.target.reset();
+                    this.setState({
+                        isBlocking: false
+                    });
+                }}>
+
+                <Prompt
+                    when={isBlocking}
+                    message={location =>
+                        `Are you sure you want to go to ${location.pathname}`} />
+
+                <p>
+                    Blocking?{" "}
+                    {isBlocking ? "Yes, click a link or the back button" : "Nope"}
+                </p>
+
+                <p>
+                    <input
+                        size="50"
+                        placeholder="type someing to block transitions"
+                        onChange={event => {
+                            this.setState({
+                                isBlocking: event.target.value.length > 0
+                            });
+                        }} />
+                </p>
+
+                <p>
+                    <button type="submit">Submit to stop blocking</button>
+                </p>
             </form>
         );
     }
